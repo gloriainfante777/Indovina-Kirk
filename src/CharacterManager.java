@@ -34,7 +34,7 @@ public class CharacterManager {
         allCharacters.add(new CharacterCard("Michela", FEMMINA,"carnagione scura","capelli neri","capelli lunghi","visibilmente vecchio"));
         allCharacters.add(new CharacterCard("Parigia", FEMMINA,"carnagione bianca","capelli biondi","capelli lunghi","occhiali da sole","visibilmente giovane"));
         allCharacters.add(new CharacterCard("Natalia", FEMMINA,"carnagione bianca","capelli marroni","capelli lunghi","botox alle labbra","visibilmente giovane"));
-        allCharacters.add(new CharacterCard("Elly ", FEMMINA,"carnagione bianca","capelli marroni","capelli corti","occhi scuri","naso lungo","visibilmente vecchio"));
+        allCharacters.add(new CharacterCard("Elly", FEMMINA,"carnagione bianca","capelli marroni","capelli corti","occhi scuri","naso lungo","visibilmente vecchio"));
         allCharacters.add(new CharacterCard("Leonarda ", FEMMINA,"carnagione bianca","visibilmente vecchia","capelli marroni","capelli corti","occhi scuri","naso lungo"));
         allCharacters.add(new CharacterCard("Barbara", FEMMINA,"carnagione bianca","visibilmente vecchia","capelli biondi","capelli lunghi","occhi scuri"));
         allCharacters.add(new CharacterCard("Giulia", FEMMINA,"carnagione bianca","visibilmente giovane","capelli scuri","capelli lunghi","occhi scuri","lentiggini"));
