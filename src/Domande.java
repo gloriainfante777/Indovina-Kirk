@@ -22,7 +22,7 @@ public class Domande {
         List<String> avaiable = new ArrayList<>();
 
         for (String q: tuttedomande){
-            if (tuttedomande.contains(q))
+            if (tuttedomande.contains(q)
         }
     }
 
