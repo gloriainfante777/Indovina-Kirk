@@ -45,6 +45,13 @@ public class CharacterManager {
     public List<CharacterCard> getAllCharacters() {
         return allCharacters;
     }
+    public void setUserCharacter(CharacterCard c) {
+        this.userCharacter = c;
+    }
 
-
+    public CharacterCard getUserCharacter() {
+        return userCharacter; }
 }
+
+
+
