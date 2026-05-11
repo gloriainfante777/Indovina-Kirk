@@ -1,6 +1,11 @@
 
-package manager;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
 
 public class Domande {
 
@@ -14,16 +19,51 @@ public class Domande {
 
     public void CaricaDomande(){
 
-        Collections.addAll(tuttedomande, "E' un maschio?", "E' una femmina?","E' vecchio?" , "E' vecchia?", "Ha gli occhiali?" , "Ha gli occhiali da sole?" , "E' ebreo?" , "Ha gli occhi scuri?", "Ha gli occhi chiari?", "E' negro?" , "E' bianco?", "ha i baffi?", "Ha la barba?" , "Ha le orecchie grandi?", "Ha i capelli?" , "Ha i capelli scuri?", "Ha i capelli chiari?" , "Ha i capelli lunghi?" , "Ha i capelli corti?", "Ha i capelli rossi?" , "Ha i capelli neri?", "Ha le lentiggini?", "Ha la faccia?");
-
+        Collections.addAll(tuttedomande,
+                "E' un maschio?",
+                "E' una femmina?","E' vecchio?" ,
+                "E' vecchia?",
+                "Ha gli occhiali?" ,
+                "Ha gli occhiali da sole?" ,
+                "E' ebreo?" ,
+                "Ha gli occhi scuri?",
+                "Ha gli occhi chiari?",
+                "E' negro?" ,
+                "E' bianco?",
+                "ha i baffi?",
+                "Ha la barba?" ,
+                "Ha le orecchie grandi?",
+                "Ha i capelli?" ,
+                "Ha i capelli scuri?",
+                "Ha i capelli chiari?" ,
+                "Ha i capelli lunghi?" ,
+                "Ha i capelli corti?",
+                "Ha i capelli rossi?" ,
+                "Ha i capelli neri?",
+                "Ha le lentiggini?",
+                "Ha la faccia?");
 
     }
     public List<String> generaturnodomanda(){
         List<String> avaiable = new ArrayList<>();
 
         for (String q: tuttedomande){
-            if (tuttedomande.contains(q)
+            if (!tuttedomande.contains(q)){
+                avaiable.add(q);
+            }
         }
+        Collections.shuffle(avaiable,md);
+
+        List<String> turn = new ArrayList<>();
+
+        for(int i=0; i<3 &&  i< avaiable.size(); i++){
+
+            String question = avaiable.get(i);
+            turn.add(question);
+            domandefatte.add(question);
+        }
+        return turn;
     }
+
 
 }
