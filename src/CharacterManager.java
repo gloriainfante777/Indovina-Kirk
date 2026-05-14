@@ -1,7 +1,7 @@
 package manager;
 
 import characters.CharacterCard;
-import static characters.CharacterCard.Gender.*;
+import static characters.CharacterCard.Genere.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -21,7 +21,7 @@ public class CharacterManager {
         allCharacters.add(new CharacterCard("Aldo", MASCHIO , "visibilmente vecchio","carnagione bianca", "capelli biondi pochi", "occhi scuri"));
         allCharacters.add(new CharacterCard("Beniamino ", MASCHIO,"carnagione bianca", "capelli bianchi", "occhi scuri", "visibilmente vecchio", "orecchie grandi", "faccia snella"));
         allCharacters.add(new CharacterCard("Giacomo", MASCHIO ,"carnagione bianca","capelli bianchi", "visibilmente vecchio","naso grande"));
-        allCharacters.add(new CharacterCard("Raimondo", MASCHIO ,"pizzetto", "visibilmente vecchio","capelli scuri medi","paffuto","occhiali""carnagione bianca"));
+        allCharacters.add(new CharacterCard("Raimondo", MASCHIO ,"pizzetto", "visibilmente vecchio","capelli scuri medi","paffuto","occhiali","carnagione bianca"));
         allCharacters.add(new CharacterCard("LaRoccia", MASCHIO ,"carnagione scura", "muscoloso","pelato","visibilmente giovane"));
         allCharacters.add(new CharacterCard("Benny", MASCHIO, "carnagione bianca", "pelato","visibilmente vecchio"));
         allCharacters.add(new CharacterCard("Nicola", MASCHIO,"carnagione scura","baffi","cuffie","occhiali da sole","visibilmente vecchio"));
