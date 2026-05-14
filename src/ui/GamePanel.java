@@ -1,10 +1,5 @@
 package ui;
-// ===============================
-// PACKAGE: ui
-// FILE: GamePanel.java
-// ===============================
 
-package ui;
 
 import audio.AudioManager;
 import manager.CharacterManager;

@@ -1,20 +1,14 @@
 import ui.GamePanel;
 
-import javax.swing.JFrame;
 
 public class Main {
-    public static void main(String[] args){
-        JFrame frame = new JFrame("Indovina Kirk");
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1920, 1080);
-        frame.setResizable(false);
+    public static void main(String[] args) {
 
-        GamePanel pannello = new GamePanel();
-        frame.add(pannello);
+        SwingUtilities.invokeLater(() -> {
 
-        frame.setLocationRelativeTo(null);
+            new GameFrame();
 
-        frame.setVisible(true);
+        });
     }
 }
