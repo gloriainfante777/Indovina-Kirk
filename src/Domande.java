@@ -64,6 +64,4 @@ public class Domande {
         }
         return turn;
     }
-
-
 }
