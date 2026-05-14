@@ -4,9 +4,6 @@ public class CharacterCard {
     public void setExcluded(boolean b) {
     }
 
-    public boolean isExcluded() {
-    }
-
     public enum Genere {MASCHIO, FEMMINA}
 
     private final String nome;
@@ -37,11 +34,11 @@ public class CharacterCard {
         return tratti;
     }
 
-    public boolean isExluded() {
-        return exluded;
+    public boolean isExcluded() {
+        return excluded;
     }
 
-    public void setExluded(boolean exluded) {
-        this.exluded = exluded;
+    public void isExcluded(boolean exluded) {
+        this.excluded = excluded;
     }
 }
