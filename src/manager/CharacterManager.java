@@ -1,62 +1,99 @@
+// ===============================
+// PACKAGE: manager
+// FILE: CharacterManager.java
+// ===============================
+
 package manager;
 
 import characters.CharacterCard;
-import static characters.CharacterCard.Genere.*;
+import characters.Tratti;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static characters.CharacterCard.Genere.*;
+
 public class CharacterManager {
-    private final List<CharacterCard> allCharacters = new ArrayList<>();
-    private CharacterCard aiCharacter;  //personaggio scelto dall'AI
-    private CharacterCard userCharacter; //personaggio scelto dall'utente
 
-    public CharacterManager(){
-        loadCharacters();
-        pickAICharacter();
-    }
-    private void loadCharacters(){
-        allCharacters.add(new CharacterCard("Carlo", MASCHIO ,"visibilmente giovane", "ferita collo sinistra", "capelli scuri", "carnagione bianca", "occhi scuri"));
-        allCharacters.add(new CharacterCard("Goffredo", MASCHIO , "visibilmente vecchio","carnagione bianca","capelli grigi", "mascella enorme", "labbro spaccato", "naso enorme"));
-        allCharacters.add(new CharacterCard("Aldo", MASCHIO , "visibilmente vecchio","carnagione bianca", "capelli biondi pochi", "occhi scuri"));
-        allCharacters.add(new CharacterCard("Beniamino ", MASCHIO,"carnagione bianca", "capelli bianchi", "occhi scuri", "visibilmente vecchio", "orecchie grandi", "faccia snella"));
-        allCharacters.add(new CharacterCard("Giacomo", MASCHIO ,"carnagione bianca","capelli bianchi", "visibilmente vecchio","naso grande"));
-        allCharacters.add(new CharacterCard("Raimondo", MASCHIO ,"pizzetto", "visibilmente vecchio","capelli scuri medi","paffuto","occhiali","carnagione bianca"));
-        allCharacters.add(new CharacterCard("LaRoccia", MASCHIO ,"carnagione scura", "muscoloso","pelato","visibilmente giovane"));
-        allCharacters.add(new CharacterCard("Benny", MASCHIO, "carnagione bianca", "pelato","visibilmente vecchio"));
-        allCharacters.add(new CharacterCard("Nicola", MASCHIO,"carnagione scura","baffi","cuffie","occhiali da sole","visibilmente vecchio"));
-        allCharacters.add(new CharacterCard("Paolo", MASCHIO,"carnagione bianca","occhi azzurri","capelli scuri ","barba scura","visibilmente giovane"));
-        allCharacters.add(new CharacterCard("Silvio", MASCHIO,"carnagione bianca","visibilmente vecchio","occhi scuri","capelli scuri"));
-        allCharacters.add(new CharacterCard("Max", MASCHIO,"carnagione bianca","pizzetto","occhi chiari","capelli chiari","visibilmente giovane"));
-        allCharacters.add(new CharacterCard("Blab", FEMMINA,"carnagione bianca","triplo mento","visibilmente giovane"));
-        allCharacters.add(new CharacterCard("Giovanna", FEMMINA,"caschetto nero","carnagione bianca","visibilmente vecchio"));
-        allCharacters.add(new CharacterCard("Elena", FEMMINA,"carnagione bianca","occhi chiari","capelli corti","capelli biondi","visibilmente vecchio"));
-        allCharacters.add(new CharacterCard("Michela", FEMMINA,"carnagione scura","capelli neri","capelli lunghi","visibilmente vecchio"));
-        allCharacters.add(new CharacterCard("Parigia", FEMMINA,"carnagione bianca","capelli biondi","capelli lunghi","occhiali da sole","visibilmente giovane"));
-        allCharacters.add(new CharacterCard("Natalia", FEMMINA,"carnagione bianca","capelli marroni","capelli lunghi","botox alle labbra","visibilmente giovane"));
-        allCharacters.add(new CharacterCard("Elly", FEMMINA,"carnagione bianca","capelli marroni","capelli corti","occhi scuri","naso lungo","visibilmente vecchio"));
-        allCharacters.add(new CharacterCard("Leonarda ", FEMMINA,"carnagione bianca","visibilmente vecchia","capelli marroni","capelli corti","occhi scuri","naso lungo"));
-        allCharacters.add(new CharacterCard("Barbara", FEMMINA,"carnagione bianca","visibilmente vecchia","capelli biondi","capelli lunghi","occhi scuri"));
-        allCharacters.add(new CharacterCard("Giulia", FEMMINA,"carnagione bianca","visibilmente giovane","capelli scuri","capelli lunghi","occhi scuri","lentiggini"));
-        allCharacters.add(new CharacterCard("Lorenza", FEMMINA,"carnagione scura","visibilmente giovane","capelli rossi","capelli lunghi","occhi scuri"));
-        allCharacters.add(new CharacterCard("Rosa", FEMMINA,"carnagione bianca","visibilmente vecchia","capelli scuri","capelli corti","occhi scuri"));
-    }
-    private void pickAICharacter() {
-        Random r = new Random();
-        aiCharacter = allCharacters.get(r.nextInt(allCharacters.size()));
-    }
-    public CharacterCard getAICharacter() { return aiCharacter; }
+    private final List<CharacterCard> tuttiPersonaggi =
+            new ArrayList<>();
 
-    public List<CharacterCard> getAllCharacters() {
-        return allCharacters;
-    }
-    public void setUserCharacter(CharacterCard c) {
-        this.userCharacter = c;
+    private CharacterCard personaggioIA;
+
+    private CharacterCard personaggioUtente;
+
+    public CharacterManager() {
+
+        caricaPersonaggi();
+
+        scegliPersonaggioIA();
     }
 
-    public CharacterCard getUserCharacter() {
-        return userCharacter; }
+    private void caricaPersonaggi() {
+
+        tuttiPersonaggi.add(new CharacterCard(
+                "Carlo",
+                MASCHIO,
+                Tratti.GIOVANE,
+                Tratti.FERITA_COLLO,
+                Tratti.CAPELLI_SCURI,
+                Tratti.CARNAGIONE_BIANCA,
+                Tratti.OCCHI_SCURI
+        ));
+
+        tuttiPersonaggi.add(new CharacterCard(
+                "Goffredo",
+                MASCHIO,
+                Tratti.VECCHIO,
+                Tratti.CAPELLI_GRIGI,
+                Tratti.CARNAGIONE_BIANCA,
+                Tratti.NASO_GRANDE
+        ));
+
+        tuttiPersonaggi.add(new CharacterCard(
+                "Elena",
+                FEMMINA,
+                Tratti.CAPELLI_BIONDI,
+                Tratti.CAPELLI_CORTI,
+                Tratti.CARNAGIONE_BIANCA,
+                Tratti.OCCHI_AZZURRI
+        ));
+
+        tuttiPersonaggi.add(new CharacterCard(
+                "Michela",
+                FEMMINA,
+                Tratti.CARNAGIONE_SCURA,
+                Tratti.CAPELLI_SCURI,
+                Tratti.CAPELLI_LUNGHI
+        ));
+    }
+
+    private void scegliPersonaggioIA() {
+
+        Random random = new Random();
+
+        personaggioIA = tuttiPersonaggi.get(
+                random.nextInt(tuttiPersonaggi.size())
+        );
+    }
+
+    public List<CharacterCard> getTuttiPersonaggi() {
+        return tuttiPersonaggi;
+    }
+
+    public CharacterCard getPersonaggioIA() {
+        return personaggioIA;
+    }
+
+    public void setPersonaggioUtente(
+            CharacterCard personaggioUtente) {
+
+        this.personaggioUtente = personaggioUtente;
+    }
+
+    public CharacterCard getPersonaggioUtente() {
+        return personaggioUtente;
+    }
 }
-
-
 
