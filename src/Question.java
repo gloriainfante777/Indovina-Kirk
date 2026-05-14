@@ -1,8 +1,5 @@
 import characters.Tratti;
 
-
-package manager;
-
     public class Question {
 
         private final String testo;
@@ -26,4 +23,4 @@ package manager;
             return testo;
         }
     }
-}
+
