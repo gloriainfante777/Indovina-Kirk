@@ -1,41 +1,31 @@
-
-
 package characters;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class CharacterCard {
-
-    public enum Genere {
-        MASCHIO,
-        FEMMINA
+    public void setExcluded(boolean b) {
     }
+
+    public boolean isExcluded() {
+    }
+
+    public enum Genere {MASCHIO, FEMMINA}
 
     private final String nome;
     private final Genere genere;
+    private final String[] tratti;
+    private boolean excluded = false; //la sbarra caduta
 
-    private final Set<Tratti> tratti;
 
-    private boolean escluso = false;
-
-    public CharacterCard(String nome, Genere genere, Tratti... tratti) {
-
-        if(nome == null || genere == null) {
-            throw new IllegalArgumentException("Personaggio non valido");
+    public CharacterCard(String nome, Genere genere, String... tratti) {
+        if (nome == null || genere == null) {
+            throw new IllegalArgumentException("personaggio non valido");
         }
+        this.nome=nome;
+        this.genere=genere;
+        this.tratti=tratti;
 
-        this.nome = nome;
-        this.genere = genere;
-
-        this.tratti = new HashSet<>();
-
-        for(Tratti t : tratti) {
-            this.tratti.add(t);
-        }
     }
 
-    public String getNome() {
+    public String getnome() {
         return nome;
     }
 
@@ -43,19 +33,15 @@ public class CharacterCard {
         return genere;
     }
 
-    public Set<Tratti> getTratti() {
+    public String[] gettratti() {
         return tratti;
     }
 
-    public boolean hasTrait(Tratti trait) {
-        return tratti.contains(trait);
+    public boolean isExluded() {
+        return exluded;
     }
 
-    public boolean isEscluso() {
-        return escluso;
-    }
-
-    public void setEscluso(boolean escluso) {
-        this.escluso = escluso;
+    public void setExluded(boolean exluded) {
+        this.exluded = exluded;
     }
 }
