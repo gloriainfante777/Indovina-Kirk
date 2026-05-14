@@ -15,7 +15,7 @@ public class CharacterCard {
     private boolean excluded = false; //la sbarra caduta
 
 
-    public CharacterCard(String nome, Genere genere, Tratti vecchio, Tratti capelliGrigi, Tratti carnagioneBianca, Tratti nasoGrande, String... tratti) {
+    public CharacterCard(String nome, Genere genere, String... tratti) {
         if (nome == null || genere == null) {
             throw new IllegalArgumentException("personaggio non valido");
         }
