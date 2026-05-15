@@ -1,28 +1,30 @@
 package characters;
 
 public class CharacterCard {
-    public void setExcluded(boolean b) {
-    }
 
-    public enum Genere {MASCHIO, FEMMINA}
+    public enum Genere {
+        MASCHIO,
+        FEMMINA
+    }
 
     private final String nome;
     private final Genere genere;
-    private final String[] tratti;
-    private boolean excluded = false; //la sbarra caduta
+    private final Tratti[] tratti;
 
+    private boolean excluded = false;
 
-    public CharacterCard(String nome, Genere genere, String... tratti) {
+    public CharacterCard(String nome, Genere genere, Tratti... tratti) {
+
         if (nome == null || genere == null) {
             throw new IllegalArgumentException("personaggio non valido");
         }
-        this.nome=nome;
-        this.genere=genere;
-        this.tratti=tratti;
 
+        this.nome = nome;
+        this.genere = genere;
+        this.tratti = tratti;
     }
 
-    public String getnome() {
+    public String getNome() {
         return nome;
     }
 
@@ -30,7 +32,7 @@ public class CharacterCard {
         return genere;
     }
 
-    public String[] gettratti() {
+    public Tratti[] getTratti() {
         return tratti;
     }
 
@@ -38,7 +40,7 @@ public class CharacterCard {
         return excluded;
     }
 
-    public void isExcluded(boolean exluded) {
+    public void setExcluded(boolean excluded) {
         this.excluded = excluded;
     }
 }
