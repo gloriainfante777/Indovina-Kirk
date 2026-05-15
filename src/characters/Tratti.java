@@ -1,5 +1,6 @@
 package characters;
 public enum Tratti {
+
         CAPELLI_SCURI,
         CAPELLI_BIONDI,
         CAPELLI_BIANCHI,
@@ -11,7 +12,6 @@ public enum Tratti {
 
         OCCHI_SCURI,
         OCCHI_AZZURRI,
-        OCCHI_MARRONI,
 
         CARNAGIONE_BIANCA,
         CARNAGIONE_SCURA,
@@ -26,9 +26,6 @@ public enum Tratti {
         GIOVANE,
 
         NASO_GRANDE,
-        LENTIGGINI,
-        MUSCOLOSO,
-        PAFFUTO,
 
         FERITA_COLLO,
         FRONTE_LARGA,

@@ -5,11 +5,11 @@ public class GameManager {
     private int viteUtente = 3;
     private int viteIA = 3;
 
-    public boolean controllaRispostaIA(Question domanda,
+    public boolean controllaRispostaIA(Domanda domanda,
                                        CharacterCard personaggioIA) {
 
-        return personaggioIA.hasTrait(
-                domanda.getTraitAssociato()
+        return personaggioIA.haTratto(
+                domanda.getTratto()
         );
     }
 

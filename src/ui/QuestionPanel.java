@@ -1,7 +1,6 @@
 package ui;
 
 import manager.Domanda;
-import manager.QuestionManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,53 +8,21 @@ import java.util.List;
 
 public class QuestionPanel extends JPanel {
 
-    private final JButton[] bottoni =
-            new JButton[3];
+    public QuestionPanel(List<Domanda> domande) {
 
-    public QuestionPanel(QuestionManager manager) {
+        setLayout(new GridLayout(3, 1));
 
-        setLayout(
-                new GridLayout(3,1,10,10)
-        );
+        for (Domanda d : domande) {
 
-        setPreferredSize(
-                new Dimension(300,500)
-        );
+            JButton btn = new JButton(d.getTesto());
 
-        generaBottoni(manager);
-    }
+            btn.addActionListener(e -> {
 
-    private void generaBottoni(
-            QuestionManager manager) {
+                System.out.println("DOMANDA: " + d.getTesto());
 
-        List<Domanda> domande =
-                manager.generaTreDomande();
+            });
 
-        for(int i = 0;
-            i < domande.size();
-            i++) {
-
-            Domanda domanda =
-                    domande.get(i);
-
-            JButton bottone =
-                    new JButton(
-                            domanda.getTesto()
-                    );
-
-            bottone.setFocusPainted(false);
-
-            bottone.setFont(
-                    new Font(
-                            "Arial",
-                            Font.BOLD,
-                            16
-                    )
-            );
-
-            bottoni[i] = bottone;
-
-            add(bottone);
+            add(btn);
         }
     }
 }

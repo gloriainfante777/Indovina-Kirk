@@ -20,7 +20,7 @@ public class Domanda {
         return testo;
     }
 
-    public Tratti getTrattoAssociato() {
+    public Tratti getTratto() {
         return trattoAssociato;
     }
 
