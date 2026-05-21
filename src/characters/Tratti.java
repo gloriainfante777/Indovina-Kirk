@@ -1,11 +1,17 @@
 package characters;
+
 public enum Tratti {
+
+        MASCHIO,
+        FEMMINA,
+
+        VECCHIO,
+        GIOVANE,
 
         CAPELLI_SCURI,
         CAPELLI_BIONDI,
-        CAPELLI_BIANCHI,
-        CAPELLI_GRIGI,
         CAPELLI_ROSSI,
+        CAPELLI_BIANCHI,
 
         CAPELLI_CORTI,
         CAPELLI_LUNGHI,
@@ -18,18 +24,14 @@ public enum Tratti {
 
         PELATO,
         BAFFI,
-        PIZZETTO,
+        BARBA,
+
         OCCHIALI,
         OCCHIALI_DA_SOLE,
 
-        VECCHIO,
-        GIOVANE,
-
         NASO_GRANDE,
 
-        FERITA_COLLO,
-        FRONTE_LARGA,
-        FACCIA_STORTA,
-        TRIPLO_MENTO
-    }
+        SENZAFACCIA,
 
+        EBREO
+}

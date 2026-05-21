@@ -14,34 +14,35 @@ public class CharacterGrid extends JPanel {
 
     public CharacterCard selected;
 
-    public CharacterGrid(List<CharacterCard> l) {
-
-        list = l;
+    public CharacterGrid(List<CharacterCard> list) {
+        this.list = list;
 
         addMouseListener(new MouseAdapter() {
-
+            @Override
             public void mousePressed(MouseEvent e) {
 
-                int size = getWidth() / 5;
+                int cols = 5;
+
+                int size = Math.min(
+                        getWidth() / cols,
+                        getHeight() / ((list.size() / cols) + 1)
+                );
 
                 int col = e.getX() / size;
                 int row = e.getY() / size;
 
-                int i = row * 5 + col;
+                int i = row * cols + col;
 
-                if (i >= list.size()) return;
-
-                CharacterCard c = list.get(i);
-
-                if (SwingUtilities.isLeftMouseButton(e))
-                    selected = c;
-
-                if (SwingUtilities.isRightMouseButton(e))
-                    c.setEscluso(true);
-
-                repaint();
+                if (i >= 0 && i < list.size()) {
+                    selected = list.get(i);
+                    repaint();
+                }
             }
         });
+    }
+
+    public void refresh() {
+        repaint();
     }
 
     @Override
@@ -49,26 +50,47 @@ public class CharacterGrid extends JPanel {
 
         super.paintComponent(g);
 
-        int size = getWidth() / 5;
+        int cols = 5;
+
+        int rows = (int) Math.ceil(list.size() / (double) cols);
+
+        int size = Math.min(
+                getWidth() / cols,
+                getHeight() / rows
+        );
 
         for (int i = 0; i < list.size(); i++) {
 
             CharacterCard c = list.get(i);
 
-            int x = (i % 5) * size;
-            int y = (i / 5) * size;
+            int x = (i % cols) * size;
+            int y = (i / cols) * size;
 
-            // 1. PERSONAGGIO
+            // BOX
+            g.setColor(Color.LIGHT_GRAY);
+            g.fillRect(x, y, size - 2, size - 2);
+
+            // NOME
+            g.setColor(Color.BLACK);
+            g.drawString(c.getNome(), x + 10, y + 20);
+
+            // IMMAGINE
             if (c.getImmagine() != null) {
                 g.drawImage(c.getImmagine(), x, y, size, size, null);
             }
 
-            // 2. OVERLAY ESCLUSIONE
+            // ESCLUSIONE
             if (c.isEscluso()) {
                 g.setColor(new Color(0, 0, 0, 180));
                 g.fillRect(x, y, size, size);
             }
 
+            // SELEZIONE
+            if (c == selected) {
+                g.setColor(Color.YELLOW);
+                g.drawRect(x, y, size - 1, size - 1);
+                g.drawRect(x + 1, y + 1, size - 3, size - 3);
             }
         }
     }
+}
