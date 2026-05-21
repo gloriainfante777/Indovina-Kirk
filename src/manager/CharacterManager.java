@@ -152,7 +152,7 @@ public class CharacterManager {
                 Tratti.BARBA,
                 Tratti.OCCHI_AZZURRI,
                 Tratti.CAPELLI_BIONDI,
-                Tratti.GIOVANE,
+                Tratti.VECCHIO,
                 Tratti.CAPELLI_CORTI
         ));
 
