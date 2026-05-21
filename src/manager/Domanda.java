@@ -1,31 +1,17 @@
 package manager;
 
-
 import characters.Tratti;
 
 public class Domanda {
 
     private final String testo;
+    private final Tratti tratto;
 
-    private final Tratti trattoAssociato;
-
-    public Domanda(String testo,
-                   Tratti trattoAssociato) {
-
-        this.testo = testo;
-        this.trattoAssociato = trattoAssociato;
+    public Domanda(String t, Tratti tr) {
+        this.testo = t;
+        this.tratto = tr;
     }
 
-    public String getTesto() {
-        return testo;
-    }
-
-    public Tratti getTratto() {
-        return trattoAssociato;
-    }
-
-    @Override
-    public String toString() {
-        return testo;
-    }
+    public String getTesto() { return testo; }
+    public Tratti getTratto() { return tratto; }
 }

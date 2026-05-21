@@ -1,170 +1,57 @@
 package manager;
 
-import characters.CharacterCard.Genere;
+import characters.CharacterCard;
 import characters.Tratti;
 
 import java.util.*;
 
 public class QuestionManager {
 
-    private final List<Domanda> tutteDomande =
-            new ArrayList<>();
-
-    private final Set<Domanda> domandeUsate =
-            new HashSet<>();
+    private final List<Domanda> domande = new ArrayList<>();
+    private final Set<Domanda> usate = new HashSet<>();
 
     public QuestionManager() {
-        caricaDomande();
+
+        domande.add(new Domanda("È vecchio?", Tratti.VECCHIO));
+        domande.add(new Domanda("È femmina?", Tratti.FEMMINA));
+        domande.add(new Domanda("Ha gli occhi scuri?", Tratti.OCCHI_SCURI));
+        domande.add(new Domanda("Ha occhi azzurri?", Tratti.OCCHI_AZZURRI));
+        domande.add(new Domanda("Ha capelli scuri?", Tratti.CAPELLI_SCURI));
+        domande.add(new Domanda("Ha capelli biondi?", Tratti.CAPELLI_BIONDI));
+        domande.add(new Domanda("È pelato?", Tratti.PELATO));
+        domande.add(new Domanda("Ha gli occhiali?", Tratti.OCCHIALI));
+        domande.add(new Domanda("Ha i baffi?", Tratti.BAFFI));
+        domande.add(new Domanda("Ha il naso grande?", Tratti.NASO_GRANDE));
+        domande.add(new Domanda("ha i capelli lunghi?", Tratti.CAPELLI_LUNGHI));
+        domande.add(new Domanda("ha la carnagione negra?", Tratti.CARNAGIONE_SCURA));
+        domande.add(new Domanda("ha la carnagione ariana?", Tratti.CARNAGIONE_BIANCA));
+        domande.add(new Domanda("è ebreo?", Tratti.EBREO));
+        domande.add(new Domanda("è senza faccia?", Tratti.SENZAFACCIA));
+        domande.add(new Domanda("ha i capelli rossi?", Tratti.CAPELLI_ROSSI));
+
     }
 
-    private void caricaDomande() {
+    public List<Domanda> get3() {
 
-        tutteDomande.add(new Domanda(
-                "È un maschio?",
-                Genere.MASCHIO
-        ));
+        List<Domanda> disponibili = new ArrayList<>();
 
-        tutteDomande.add(new Domanda(
-                "È una femmina?",
-                Genere.FEMMINA
-        ));
+        for (Domanda d : domande)
+            if (!usate.contains(d)) disponibili.add(d);
 
-        tutteDomande.add(new Domanda(
-                "È vecchio?",
-                Tratti.VECCHIO
-        ));
-
-        tutteDomande.add(new Domanda(
-                "È giovane?",
-                Tratti.GIOVANE
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha gli occhi scuri?",
-                Tratti.OCCHI_SCURI
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha gli occhi azzurri?",
-                Tratti.OCCHI_AZZURRI
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha gli occhiali?",
-                Tratti.OCCHIALI
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha gli occhiali da sole?",
-                Tratti.OCCHIALI_DA_SOLE
-        ));
-
-        tutteDomande.add(new Domanda(
-                "È bianco?",
-                Tratti.CARNAGIONE_BIANCA
-        ));
-
-        tutteDomande.add(new Domanda(
-                "È neGro?",
-                Tratti.CARNAGIONE_SCURA
-        ));
-
-
-
-        tutteDomande.add(new Domanda(
-                "È pelato?",
-                Tratti.PELATO
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha i capelli scuri?",
-                Tratti.CAPELLI_SCURI
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha i capelli chiari?",
-                Tratti.CAPELLI_BIONDI
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha i capelli neri?",
-                Tratti.CAPELLI_SCURI
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha i capelli biondi?",
-                Tratti.CAPELLI_BIONDI
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha i capelli rossi?",
-                Tratti.CAPELLI_ROSSI
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha i capelli lunghi?",
-                Tratti.CAPELLI_LUNGHI
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha i capelli corti?",
-                Tratti.CAPELLI_CORTI
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha la barba?",
-                Tratti.BARBA
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha i baffi?",
-                Tratti.BAFFI
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha le orecchie a sventola?",
-                Tratti.ORECCHIE_A_SVENTOLA
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha le orecchie grandi?",
-                Tratti.ORECCHIE_GRANDI
-        ));
-
-        tutteDomande.add(new Domanda(
-                "Ha il naso grande?",
-                Tratti.NASO_GRANDE
-        ));
-    }
-
-    public List<Domanda> generaTreDomande() {
-
-        List<Domanda> disponibili =
-                new ArrayList<>();
-
-        for(Domanda d : tutteDomande) {
-
-            if(!domandeUsate.contains(d)) {
-                disponibili.add(d);
-            }
+        if (disponibili.size() < 3) {
+            usate.clear();
+            disponibili.addAll(domande);
         }
 
         Collections.shuffle(disponibili);
 
-        List<Domanda> risultato =
-                new ArrayList<>();
+        List<Domanda> out = new ArrayList<>(disponibili.subList(0, 3));
+        usate.addAll(out);
 
-        for(int i = 0;
-            i < 3 && i < disponibili.size();
-            i++) {
+        return out;
+    }
 
-            Domanda d = disponibili.get(i);
-
-            risultato.add(d);
-
-            domandeUsate.add(d);
-        }
-
-        return risultato;
+    public List<Domanda> generaTreDomande() {
+        return get3();
     }
 }

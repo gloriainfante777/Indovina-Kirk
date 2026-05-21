@@ -1,60 +1,44 @@
 package audio;
 
 import javax.sound.sampled.*;
-import java.io.File;
 
 public class AudioManager {
 
-    private static Clip musicaBackground;
+    private static Clip musica;
 
-    // Riproduce un suono singolo
-    public static void riproduciSuono(String path) {
-
+    public static void play(String path) {
         try {
-
             AudioInputStream audio =
                     AudioSystem.getAudioInputStream(
-                            new File(path)
+                            AudioManager.class.getResource(path)
                     );
 
             Clip clip = AudioSystem.getClip();
-
             clip.open(audio);
-
             clip.start();
 
         } catch (Exception e) {
-
-            System.out.println("Errore audio: " + path);
+            System.out.println("Errore audio");
         }
     }
 
-    // Riproduce musica in loop
-    public static void riproduciMusicaLoop(String path) {
-
+    public static void loop(String path) {
         try {
-
             AudioInputStream audio =
                     AudioSystem.getAudioInputStream(
-                            new File(path)
+                            AudioManager.class.getResource(path)
                     );
 
-            musicaBackground = AudioSystem.getClip();
-
-            musicaBackground.open(audio);
-
-            musicaBackground.loop(Clip.LOOP_CONTINUOUSLY);
+            musica = AudioSystem.getClip();
+            musica.open(audio);
+            musica.loop(Clip.LOOP_CONTINUOUSLY);
 
         } catch (Exception e) {
-
             System.out.println("Errore musica");
         }
     }
 
-    public static void stopMusica() {
-
-        if(musicaBackground != null) {
-            musicaBackground.stop();
-        }
+    public static void stop() {
+        if (musica != null) musica.stop();
     }
 }

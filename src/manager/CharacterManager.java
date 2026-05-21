@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static characters.CharacterCard.Genere.*;
 
 public class CharacterManager {
 
@@ -29,71 +28,85 @@ public class CharacterManager {
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Carlo",
-                MASCHIO,
+                Tratti.MASCHIO,
                 Tratti.GIOVANE,
-                Tratti.FERITA_COLLO,
                 Tratti.CAPELLI_SCURI,
                 Tratti.CARNAGIONE_BIANCA,
-                Tratti.OCCHI_SCURI
+                Tratti.OCCHI_SCURI,
+                Tratti.CAPELLI_CORTI
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Goffredo",
-                MASCHIO,
+                Tratti.MASCHIO,
                 Tratti.VECCHIO,
                 Tratti.CARNAGIONE_BIANCA,
-                Tratti.CAPELLI_GRIGI,
-                Tratti.NASO_GRANDE
+                Tratti.CAPELLI_BIANCHI,
+                Tratti.NASO_GRANDE,
+                Tratti.OCCHI_SCURI,
+                Tratti.CAPELLI_CORTI,
+                Tratti.EBREO,
+                Tratti.BARBA
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Aldo",
-                MASCHIO,
+                Tratti.MASCHIO,
                 Tratti.VECCHIO,
                 Tratti.CARNAGIONE_BIANCA,
                 Tratti.CAPELLI_BIONDI,
-                Tratti.OCCHI_SCURI
+                Tratti.OCCHI_SCURI,
+                Tratti.CAPELLI_CORTI
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Beniamino",
-                MASCHIO,
+                Tratti.MASCHIO,
                 Tratti.CARNAGIONE_BIANCA,
                 Tratti.CAPELLI_BIANCHI,
                 Tratti.OCCHI_SCURI,
-                Tratti.VECCHIO
+                Tratti.VECCHIO,
+                Tratti.NASO_GRANDE,
+                Tratti.CAPELLI_CORTI,
+                Tratti.EBREO
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Giacomo",
-                MASCHIO,
+                Tratti.MASCHIO,
                 Tratti.CARNAGIONE_BIANCA,
-                Tratti.CAPELLI_BIANCHI,
+                Tratti.PELATO,
                 Tratti.VECCHIO,
-                Tratti.NASO_GRANDE
+                Tratti.NASO_GRANDE,
+                Tratti.CAPELLI_CORTI,
+                Tratti.EBREO
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Raimondo",
-                MASCHIO,
-                Tratti.PIZZETTO,
+                Tratti.MASCHIO,
+                Tratti.BARBA,
                 Tratti.VECCHIO,
                 Tratti.CAPELLI_SCURI,
                 Tratti.OCCHIALI,
-                Tratti.CARNAGIONE_BIANCA
+                Tratti.CARNAGIONE_BIANCA,
+                Tratti.BAFFI,
+                Tratti.CAPELLI_CORTI,
+                Tratti.EBREO
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "LaRoccia",
-                MASCHIO,
+                Tratti.MASCHIO,
                 Tratti.CARNAGIONE_SCURA,
                 Tratti.PELATO,
-                Tratti.GIOVANE
+                Tratti.GIOVANE,
+                Tratti.OCCHI_SCURI
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Benny",
-                MASCHIO,
+                Tratti.MASCHIO,
                 Tratti.CARNAGIONE_BIANCA,
                 Tratti.PELATO,
                 Tratti.VECCHIO
@@ -101,78 +114,91 @@ public class CharacterManager {
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Nicola",
-                MASCHIO,
+                Tratti.MASCHIO,
                 Tratti.CARNAGIONE_SCURA,
                 Tratti.BAFFI,
                 Tratti.OCCHIALI_DA_SOLE,
-                Tratti.VECCHIO
+                Tratti.OCCHIALI,
+                Tratti.VECCHIO,
+                Tratti.CAPELLI_CORTI
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Paolo",
-                MASCHIO,
+                Tratti.MASCHIO,
                 Tratti.CARNAGIONE_BIANCA,
                 Tratti.OCCHI_AZZURRI,
                 Tratti.CAPELLI_SCURI,
-                Tratti.GIOVANE
-        ));
+                Tratti.GIOVANE,
+                Tratti.BAFFI,
+                Tratti.CAPELLI_CORTI
+                ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Silvio",
-                MASCHIO,
+                Tratti.MASCHIO,
                 Tratti.CARNAGIONE_BIANCA,
                 Tratti.VECCHIO,
                 Tratti.OCCHI_SCURI,
-                Tratti.CAPELLI_SCURI
+                Tratti.CAPELLI_SCURI,
+                Tratti.CAPELLI_CORTI
+
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Max",
-                MASCHIO,
+                Tratti.MASCHIO,
                 Tratti.CARNAGIONE_BIANCA,
-                Tratti.PIZZETTO,
+                Tratti.BARBA,
                 Tratti.OCCHI_AZZURRI,
                 Tratti.CAPELLI_BIONDI,
-                Tratti.GIOVANE
+                Tratti.GIOVANE,
+                Tratti.CAPELLI_CORTI
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Blab",
-                FEMMINA,
+                Tratti.MASCHIO,
                 Tratti.CARNAGIONE_BIANCA,
+                Tratti.SENZAFACCIA,
                 Tratti.GIOVANE
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Giovanna",
-                FEMMINA,
+                Tratti.FEMMINA,
                 Tratti.CAPELLI_SCURI,
                 Tratti.CARNAGIONE_BIANCA,
-                Tratti.VECCHIO
+                Tratti.CAPELLI_CORTI,
+                Tratti.OCCHI_SCURI,
+                Tratti.VECCHIO,
+                Tratti.NASO_GRANDE
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Elena",
-                FEMMINA,
+                Tratti.FEMMINA,
                 Tratti.CAPELLI_BIONDI,
                 Tratti.CAPELLI_CORTI,
                 Tratti.CARNAGIONE_BIANCA,
                 Tratti.OCCHI_AZZURRI,
-                Tratti.VECCHIO
+                Tratti.VECCHIO,
+                Tratti.CAPELLI_CORTI
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Michela",
-                FEMMINA,
+                Tratti.FEMMINA,
                 Tratti.CARNAGIONE_SCURA,
                 Tratti.CAPELLI_SCURI,
                 Tratti.CAPELLI_LUNGHI,
                 Tratti.VECCHIO
+
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Parigia",
-                FEMMINA,
+                Tratti.FEMMINA,
                 Tratti.CARNAGIONE_BIANCA,
                 Tratti.CAPELLI_BIONDI,
                 Tratti.CAPELLI_LUNGHI,
@@ -182,27 +208,28 @@ public class CharacterManager {
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Natalia",
-                FEMMINA,
+                Tratti.FEMMINA,
                 Tratti.CARNAGIONE_BIANCA,
                 Tratti.CAPELLI_SCURI,
                 Tratti.CAPELLI_LUNGHI,
-                Tratti.GIOVANE
+                Tratti.GIOVANE,
+                Tratti.OCCHI_SCURI
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Elly",
-                FEMMINA,
+                Tratti.FEMMINA,
                 Tratti.CARNAGIONE_BIANCA,
                 Tratti.CAPELLI_SCURI,
                 Tratti.CAPELLI_CORTI,
                 Tratti.OCCHI_SCURI,
                 Tratti.NASO_GRANDE,
-                Tratti.VECCHIO
+                Tratti.GIOVANE
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Leonarda",
-                FEMMINA,
+                Tratti.FEMMINA,
                 Tratti.CARNAGIONE_BIANCA,
                 Tratti.VECCHIO,
                 Tratti.CAPELLI_SCURI,
@@ -213,7 +240,7 @@ public class CharacterManager {
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Barbara",
-                FEMMINA,
+                Tratti.FEMMINA,
                 Tratti.CARNAGIONE_BIANCA,
                 Tratti.VECCHIO,
                 Tratti.CAPELLI_BIONDI,
@@ -223,17 +250,18 @@ public class CharacterManager {
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Giulia",
-                FEMMINA,
+                Tratti.FEMMINA,
                 Tratti.CARNAGIONE_BIANCA,
                 Tratti.GIOVANE,
                 Tratti.CAPELLI_SCURI,
                 Tratti.CAPELLI_LUNGHI,
-                Tratti.OCCHI_SCURI
+                Tratti.OCCHI_SCURI,
+                Tratti.NASO_GRANDE
         ));
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Lorenza",
-                FEMMINA,
+                Tratti.FEMMINA,
                 Tratti.CARNAGIONE_SCURA,
                 Tratti.GIOVANE,
                 Tratti.CAPELLI_ROSSI,
@@ -243,7 +271,7 @@ public class CharacterManager {
 
         tuttiPersonaggi.add(new CharacterCard(
                 "Rosa",
-                FEMMINA,
+                Tratti.FEMMINA,
                 Tratti.CARNAGIONE_BIANCA,
                 Tratti.VECCHIO,
                 Tratti.CAPELLI_SCURI,

@@ -1,52 +1,51 @@
 package manager;
 
-
 import characters.CharacterCard;
 import characters.Tratti;
+
+import java.util.List;
+import java.util.Random;
 
 public class GameController {
 
     private final EliminazioneManager elim;
+    private final CharacterCard secret;
+    private Runnable onUpdate;
 
-    private CharacterCard IA;
-    private CharacterCard player;
+    public GameController(List<CharacterCard> list) {
 
-    private int vitePlayer = 3;
-    private int viteIA = 3;
+        this.elim = new EliminazioneManager(list);
 
-    public GameController(CharacterCard ia, CharacterCard player,
-                          EliminazioneManager e) {
-
-        this.IA = ia;
-        this.player = player;
-        this.elim = e;
+        this.secret = list.get(new Random().nextInt(list.size()));
     }
 
-    public void rispostaGiocatore(Tratti t, boolean si) {
-
-        if (si) elim.eliminaNo(t);
-        else elim.eliminaSi(t);
+    public void setOnUpdate(Runnable r) {
+        this.onUpdate = r;
     }
 
-    public void rispostaIA(Tratti t, boolean si) {
-
-        if (si) elim.eliminaNo(t);
-        else elim.eliminaSi(t);
+    public CharacterCard getSecret() {
+        return secret;
     }
 
-    public boolean guessIA(String nome) {
-        if (IA.getNome().equals(nome)) return true;
-        vitePlayer--;
-        return false;
+    public void playerAnswer(Tratti t, boolean si) {
+        elim.apply(t, si);
+        if (onUpdate != null) onUpdate.run();
     }
 
-    public boolean guessPlayer(String nome) {
-        if (player.getNome().equals(nome)) return true;
-        viteIA--;
-        return false;
+    public void iaTurn() {
+
+        Tratti t = Tratti.values()[new Random().nextInt(Tratti.values().length)];
+        boolean answer = secret.haTratto(t);
+
+        elim.apply(t, answer);
+
+        if (onUpdate != null) onUpdate.run();
     }
 
-    public boolean fine() {
-        return viteIA <= 0 || vitePlayer <= 0;
+    public boolean isCorrectGuess(CharacterCard c) {
+        return c == secret;
+    }
+    public boolean tryGuess(CharacterCard c) {
+        return c == secret;
     }
 }

@@ -7,61 +7,31 @@ import java.util.List;
 
 public class EliminazioneManager {
 
-    // Lista completa dei personaggi
-    private final List<CharacterCard> personaggi;
+    private final List<CharacterCard> list;
 
-
-    public EliminazioneManager(List<CharacterCard> personaggi) {
-
-        this.personaggi = personaggi;
+    public EliminazioneManager(List<CharacterCard> list) {
+        this.list = list;
     }
 
+    public void apply(Tratti t, boolean si) {
 
-    public void eliminaSi(Tratti tratto) {
+        for (CharacterCard c : list) {
 
-        for (CharacterCard c : personaggi) {
+            if (c.isEscluso()) continue;
 
-            // Se NON possiede il tratto  elimina
-            if (!c.haTratto(tratto)) {
-
-                c.setEscluso(true);
-            }
+            if (si && !c.haTratto(t)) c.setEscluso(true);
+            if (!si && c.haTratto(t)) c.setEscluso(true);
         }
     }
 
-    public void eliminaNo(Tratti tratto) {
-
-        for (CharacterCard c : personaggi) {
-
-            // Se possiede il tratto → eliminato
-            if (c.haTratto(tratto)) {
-
-                c.setEscluso(true);
-            }
-        }
+    public long rimasti() {
+        return list.stream().filter(c -> !c.isEscluso()).count();
     }
 
-    public void resetEliminazioni() {
-
-        for (CharacterCard c : personaggi) {
-
-            c.setEscluso(false);
-        }
-    }
-
-    public int getPersonaggiRimasti() {
-
-        int count = 0;
-
-        for (CharacterCard c : personaggi) {
-
-            if (!c.isEscluso()) {
-
-                count++;
-            }
-        }
-
-        return count;
+    public CharacterCard ultimoRimasto() {
+        return list.stream()
+                .filter(c -> !c.isEscluso())
+                .findFirst()
+                .orElse(null);
     }
 }
-
